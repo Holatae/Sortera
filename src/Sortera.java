@@ -251,7 +251,7 @@ public class Sortera extends javax.swing.JFrame {
 
         if (sortingAlgorithm.getSelectedIndex() == 1){
 
-            sortedArr = sort.doNotUseSort((Integer) lowerBoundsValue.getValue(),
+            sortedArr = sort.BogoSort((Integer) lowerBoundsValue.getValue(),
                     (Integer) upperBoundsValue.getValue(),
                     (Integer) amountValue.getValue());
 
@@ -260,8 +260,8 @@ public class Sortera extends javax.swing.JFrame {
 
             ArrayList<String> stringList = new ArrayList<String>();
 
-            convertArrayToStringList(sortedArr, stringList);
-            writeDurationAndTimeToExcec(duration, stringList);
+            ConvertArrayToStringList(sortedArr, stringList);
+            WriteDurationAndTimeToExcec(duration, stringList);
             return;
         }
 
@@ -272,6 +272,7 @@ public class Sortera extends javax.swing.JFrame {
             }
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(null, "Asså kom igen nu. Andra gången. Hur många fel kan du begå?");
+            return;
         }
 
 
@@ -280,7 +281,7 @@ public class Sortera extends javax.swing.JFrame {
 
         if (sortingAlgorithm.getSelectedIndex() == 0)
         {
-            sortedArr = sort.Sort(arr);
+            sortedArr = sort.BubbleSort(arr);
         }
 
 
@@ -289,17 +290,17 @@ public class Sortera extends javax.swing.JFrame {
         long duration = (endTime - startTime)/1000000;
 
         ArrayList<String> stringList = new ArrayList<String>();
-        convertArrayToStringList(sortedArr, stringList);
-        writeDurationAndTimeToExcec(duration, stringList);
+        ConvertArrayToStringList(sortedArr, stringList);
+        WriteDurationAndTimeToExcec(duration, stringList);
 
     }//GEN-LAST:event_SortActionPerformed
 
-    private void writeDurationAndTimeToExcec(long duration, ArrayList<String> stringList) {
+    private void WriteDurationAndTimeToExcec(long duration, ArrayList<String> stringList) {
         jTextArea1.setText(String.valueOf(stringList));
         timeToExec.setText(String.valueOf(duration));
     }
 
-    private static void convertArrayToStringList(int[] sortedArr, ArrayList<String> stringList) {
+    private static void ConvertArrayToStringList(int[] sortedArr, ArrayList<String> stringList) {
         for (int i = 0; i< sortedArr.length; i++){
             stringList.add(String.valueOf(sortedArr[i]));
         }
