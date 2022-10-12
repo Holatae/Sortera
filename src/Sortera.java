@@ -245,6 +245,26 @@ public class Sortera extends javax.swing.JFrame {
         String[] textAreaList = jTextArea1.getText().split(", ");
         int[] arr = new int[textAreaList.length];
 
+        SortingAlgorithm sort = new SortingAlgorithm();
+        long startTime = System.nanoTime();
+        int[] sortedArr = new int[0];
+
+        if (sortingAlgorithm.getSelectedIndex() == 1){
+
+            sortedArr = sort.doNotUseSort((Integer) lowerBoundsValue.getValue(),
+                    (Integer) upperBoundsValue.getValue(),
+                    (Integer) amountValue.getValue());
+
+            long endTime = System.nanoTime();
+            long duration = (endTime - startTime)/1000000;
+
+            ArrayList<String> stringList = new ArrayList<String>();
+
+            convertArrayToStringList(sortedArr, stringList);
+            writeDurationAndTimeToExcec(duration, stringList);
+            return;
+        }
+
         // No stupid errors
         try {
             for (int i = 0; i < textAreaList.length; i++){
@@ -254,33 +274,36 @@ public class Sortera extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Asså kom igen nu. Andra gången. Hur många fel kan du begå?");
         }
 
-        SortingAlgorithm sort = new SortingAlgorithm();
 
-        long startTime = System.nanoTime();
-        int[] sortedArr;
+
+
+
         if (sortingAlgorithm.getSelectedIndex() == 0)
         {
             sortedArr = sort.Sort(arr);
         }
-        else{
-            
-            sortedArr = sort.doNotUseSort((Integer) lowerBoundsValue.getValue(),
-            (Integer) upperBoundsValue.getValue(),
-            (Integer) amountValue.getValue());
-        }
-        
+
+
 
         long endTime = System.nanoTime();
         long duration = (endTime - startTime)/1000000;
 
         ArrayList<String> stringList = new ArrayList<String>();
-        for (int i = 0; i<sortedArr.length; i++){
-            stringList.add(String.valueOf(sortedArr[i]));
-        }
-        jTextArea1.setText(String.valueOf(stringList));
-        timeToExec.setText(String.valueOf(duration));
+        convertArrayToStringList(sortedArr, stringList);
+        writeDurationAndTimeToExcec(duration, stringList);
 
     }//GEN-LAST:event_SortActionPerformed
+
+    private void writeDurationAndTimeToExcec(long duration, ArrayList<String> stringList) {
+        jTextArea1.setText(String.valueOf(stringList));
+        timeToExec.setText(String.valueOf(duration));
+    }
+
+    private static void convertArrayToStringList(int[] sortedArr, ArrayList<String> stringList) {
+        for (int i = 0; i< sortedArr.length; i++){
+            stringList.add(String.valueOf(sortedArr[i]));
+        }
+    }
 
     private void sortingAlgorithmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sortingAlgorithmActionPerformed
         // TODO add your handling code here:
