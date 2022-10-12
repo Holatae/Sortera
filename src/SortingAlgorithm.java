@@ -1,7 +1,7 @@
 import java.util.Random;
 
 public class SortingAlgorithm {
-    public int[] Sort(int[] list){
+    public int[] BubbleSort(int[] list){
         int x = 0;
         boolean flag = false;
         int temp;
@@ -28,7 +28,7 @@ public class SortingAlgorithm {
         return list;
     }
 
-    public int[] doNotUseSort(int lowerBound, int upperBound, int length){
+    public int[] BogoSort(int lowerBound, int upperBound, int length){
         Random random = new Random();
         int[] arr = new int[length];
         Boolean error = false;
