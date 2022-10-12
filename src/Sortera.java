@@ -214,7 +214,7 @@ public class Sortera extends javax.swing.JFrame {
         int upperBounds = (int) upperBoundsValue.getValue();
         int amount = (int) amountValue.getValue();
         Random random = new Random();
-        ArrayList<Integer> randomArray = new ArrayList<Integer>();
+        ArrayList<Integer> randomArray = new ArrayList<>();
         int x = 0;
 
         try{

@@ -25,7 +25,7 @@ public class SortingAlgorithm {
             }while(x+1<=list.length-1);
         }while((flag));
 
-        return new int[]{2, 2};
+        return list;
     }
 
     public int[] doNotUseSort(int lowerBound, int upperBound, int length){
