@@ -1,37 +1,44 @@
 import java.util.Random;
 
 public class SortingAlgorithm {
-    public int[] BubbleSort(int[] list){
+    public int[] BubbleSort(int[] list) {
         int x = 0;
         boolean flag = false;
         int temp;
 
-        do{
+        do {
             x = 0;
             flag = false;
             do {
 
-                if(list[x] > list[x+1]){
+                if (list[x] > list[x + 1]) {
                     //Sorts a number
                     temp = list[x];
-                    list[x] = list[x+1];
-                    list[x+1] = temp;
+                    list[x] = list[x + 1];
+                    list[x + 1] = temp;
 
                     flag = true;
                 }
 
                 x++;
 
-            }while(x+1<=list.length-1);
-        }while((flag));
+            } while (x + 1 <= list.length - 1);
+        } while ((flag));
 
         return list;
     }
 
-    public int[] BogoSort(int lowerBound, int upperBound, int length){
+    public int[] BogoSort(int lowerBound, int upperBound, int length) {
         Random random = new Random();
-        int[] arr = new int[length];
-        Boolean error = false;
+
+        int[] arr = new int[0];
+        try {
+            arr = new int[length];
+        } catch (NegativeArraySizeException e) {
+            return null;
+        }
+
+        boolean error = false;
 
         do {
             error = false;
@@ -41,11 +48,10 @@ public class SortingAlgorithm {
             for (int i = 0; i < length; i++) {
                 //Gör koden finare
 
-                if (i + 1 <= arr.length -1){
-                    if (arr[i] <= arr[i+1]){
+                if (i + 1 <= arr.length - 1) {
+                    if (arr[i] <= arr[i + 1]) {
                         continue;
-                    }
-                    else {
+                    } else {
                         error = true;
                     }
                 }
