@@ -197,9 +197,6 @@ public class Sortera extends javax.swing.JFrame {
 
     private void lowerBoundsValueKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_lowerBoundsValueKeyPressed
         // TODO add your handling code here:
-        if (evt.isMetaDown() && evt.getKeyChar() == "A".charAt(0)) {
-
-        }
     }//GEN-LAST:event_lowerBoundsValueKeyPressed
 
     private void upperBoundsValueKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_upperBoundsValueKeyPressed
@@ -276,7 +273,7 @@ public class Sortera extends javax.swing.JFrame {
             ArrayList<String> stringList = new ArrayList<String>();
 
             ConvertArrayToStringList(sortedArr, stringList);
-            WriteDurationAndTimeToExcec(duration, stringList);
+            WriteDurationAndTimeToExec(duration, stringList);
             return;
         }
 
@@ -300,18 +297,18 @@ public class Sortera extends javax.swing.JFrame {
 
         ArrayList<String> stringList = new ArrayList<String>();
         ConvertArrayToStringList(sortedArr, stringList);
-        WriteDurationAndTimeToExcec(duration, stringList);
+        WriteDurationAndTimeToExec(duration, stringList);
 
     }//GEN-LAST:event_SortActionPerformed
 
-    private void WriteDurationAndTimeToExcec(long duration, ArrayList<String> stringList) {
+    private void WriteDurationAndTimeToExec(long duration, ArrayList<String> stringList) {
         jTextArea1.setText(String.valueOf(stringList));
         timeToExec.setText(String.valueOf(duration));
     }
 
     private static void ConvertArrayToStringList(int[] sortedArr, ArrayList<String> stringList) {
-        for (int i = 0; i < sortedArr.length; i++) {
-            stringList.add(String.valueOf(sortedArr[i]));
+        for (int j : sortedArr) {
+            stringList.add(String.valueOf(j));
         }
     }
 
